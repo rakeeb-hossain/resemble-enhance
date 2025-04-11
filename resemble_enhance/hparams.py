@@ -7,6 +7,8 @@ from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
 
+from typing import Optional
+
 logger = logging.getLogger(__name__)
 
 console = Console()
@@ -102,7 +104,7 @@ class HParams:
         OmegaConf.save(asdict(self), str(path))
 
     @classmethod
-    def load(cls, run_dir, yaml: Path | None = None):
+    def load(cls, run_dir, yaml: Optional[Path] = None):
         hps = []
 
         if (run_dir / "hparams.yaml").exists():

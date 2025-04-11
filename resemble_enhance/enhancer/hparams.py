@@ -3,6 +3,8 @@ from pathlib import Path
 
 from ..hparams import HParams as HParamsBase
 
+from typing import Union, Optional
+
 
 @dataclass(frozen=True)
 class HParams(HParamsBase):
@@ -18,10 +20,10 @@ class HParams(HParamsBase):
 
     vocoder_extra_dim: int = 32
 
-    gan_training_start_step: int | None = 5_000
-    enhancer_stage1_run_dir: Path | None = None
+    gan_training_start_step: Optional[int] = 5_000
+    enhancer_stage1_run_dir: Optional[Path] = None
 
-    denoiser_run_dir: Path | None = None
+    denoiser_run_dir: Optional[Path] = None
 
     # Enable this increases the training stability (but will also disable the change of eval_tau)
     force_gaussian_prior: bool = False

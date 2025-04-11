@@ -3,6 +3,7 @@ import os
 import random
 import warnings
 from functools import partial
+from typing import Union
 
 import numpy as np
 import torch
@@ -115,7 +116,7 @@ class Randint(Generator):
 
 
 class Concat(Generator):
-    def __init__(self, *parts: Generator | str):
+    def __init__(self, *parts: Union[Generator, str]):
         self.parts = parts
 
     def __call__(self):
